@@ -1,5 +1,7 @@
 import pygame
 from pygame import mixer
+import subprocess
+import os
 
 # Define some colors
 BLACK = (0, 0, 0)
@@ -50,11 +52,11 @@ while not done:
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
                 done = True
-            elif event.key == pygame.K_LEFT:
+            elif event.key == pygame.K_a:
                 pygame.mixer.Channel(0).play(pygame.mixer.Sound("click.wav"), maxtime=600)
                 # Move the selection to the left
                 selected = max(selected - 1, 0)
-            elif event.key == pygame.K_RIGHT:
+            elif event.key == pygame.K_d:
                 pygame.mixer.Channel(0).play(pygame.mixer.Sound("click.wav"), maxtime=600)
                 # Move the selection to the right
                 selected = min(selected + 1, len(games) - 1)
@@ -64,13 +66,19 @@ while not done:
                 game_name, game_image = games[selected]
                 print(f"Launching {game_name}...")
                 if game_name == "Pacman":
+                    dkong = ('mednafen -fs 1 "/home/arcadia/Desktop/gamemednafen/dkong.zip"')
+                    os.system(dkong)
+                    #os.system('mednafen -fs 1 "/home/arcadia/Desktop/gamemednafen/dkong.zip"')
                     print(f"{game_name} Launched with success")
                     #code to launch game
                 elif game_name == "Mario Nes":
                     print(f"{game_name} Launched with success")
+                    
                     #code to launch game
                 elif game_name == "DK Nes":
                     print(f"{game_name} Launched with success")
+                    
+                    
                     #code to launch game
                 else :
                     print(f"Error, no game selectionned")
