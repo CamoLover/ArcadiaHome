@@ -14,24 +14,24 @@ pygame.init()
 
 #starting the mixer for sfx and add background music
 mixer.init()
-mixer.music.load('music.wav')
+mixer.music.load('/home/arcadia/Desktop/ArcadiaHome-main/music.wav')
 mixer.music.play(-1)
 
 # Set the width and height of the screen [width, height]
 size = (1920, 1080)
-screen = pygame.display.set_mode(size, pygame.FULLSCREEN)
+screen = pygame.display.set_mode(size,)
 
 # Set the caption for the window
 pygame.display.set_caption("Arcadia")
 
 # Load the background image and scale it to the size of the screen
-background_image = pygame.image.load("backgroundImage.ppm").convert()
+background_image = pygame.image.load("/home/arcadia/Desktop/ArcadiaHome-main/backgroundImage.ppm").convert()
 background_image = pygame.transform.scale(background_image, size)
 
 # Load images for the games
-pacman_image = pygame.image.load("PacMan.png").convert_alpha()
-mario_image = pygame.image.load("smbNES.jpg").convert_alpha()
-donkeykong_image = pygame.image.load("dkong.jpg").convert_alpha()
+pacman_image = pygame.image.load("/home/arcadia/Desktop/ArcadiaHome-main/PacMan.png").convert_alpha()
+mario_image = pygame.image.load("/home/arcadia/Desktop/ArcadiaHome-main/smbNES.jpg").convert_alpha()
+donkeykong_image = pygame.image.load("/home/arcadia/Desktop/ArcadiaHome-main/dkong.jpg").convert_alpha()
 
 # Create a list of games
 games = [("Pacman", pacman_image), ("Mario Nes", mario_image), ("DK Nes", donkeykong_image)]
@@ -53,29 +53,33 @@ while not done:
             if event.key == pygame.K_ESCAPE:
                 done = True
             elif event.key == pygame.K_a:
-                pygame.mixer.Channel(0).play(pygame.mixer.Sound("click.wav"), maxtime=600)
+                pygame.mixer.Channel(0).play(pygame.mixer.Sound("/home/arcadia/Desktop/ArcadiaHome-main/click.wav"), maxtime=600)
                 # Move the selection to the left
                 selected = max(selected - 1, 0)
             elif event.key == pygame.K_d:
-                pygame.mixer.Channel(0).play(pygame.mixer.Sound("click.wav"), maxtime=600)
+                pygame.mixer.Channel(0).play(pygame.mixer.Sound("/home/arcadia/Desktop/ArcadiaHome-main/click.wav"), maxtime=600)
                 # Move the selection to the right
                 selected = min(selected + 1, len(games) - 1)
             elif event.key == pygame.K_RETURN:
-                pygame.mixer.Channel(0).play(pygame.mixer.Sound("pickupGame.wav"), maxtime=600)
+                pygame.mixer.Channel(0).play(pygame.mixer.Sound("/home/arcadia/Desktop/ArcadiaHome-main/pickupGame.wav"), maxtime=600)
                 # Launch the selected game
                 game_name, game_image = games[selected]
                 print(f"Launching {game_name}...")
                 if game_name == "Pacman":
-                    dkong = ('mednafen -fs 1 "/home/arcadia/Desktop/gamemednafen/dkong.zip"')
-                    os.system(dkong)
-                    #os.system('mednafen -fs 1 "/home/arcadia/Desktop/gamemednafen/dkong.zip"')
+                    pacman = ('mednafen -fs 1 "/home/arcadia/Desktop/gamemednafen/pacman.zip"')
+                    os.system(pacman)
                     print(f"{game_name} Launched with success")
                     #code to launch game
+                    
                 elif game_name == "Mario Nes":
+                    smb = ('mednafen -fs 1 "/home/arcadia/Desktop/gamemednafen/smb.zip"')
+                    os.system(smb)
                     print(f"{game_name} Launched with success")
                     
                     #code to launch game
                 elif game_name == "DK Nes":
+                    dkong = ('mednafen -fs 1 "/home/arcadia/Desktop/gamemednafen/dkong.zip"')
+                    os.system(dkong)
                     print(f"{game_name} Launched with success")
                     
                     
