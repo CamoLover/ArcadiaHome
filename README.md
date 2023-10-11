@@ -1,7 +1,5 @@
 # Arcadia - High School "Chef d'oeuvre" Project 🕹️
 
-![Arcadia](https://your-image-url-here.com)
-
 ## Introduction 🎮
 
 Arcadia is a high school "Chef d'oeuvre" project – a nostalgic home menu created for an arcade setup. Crafted by a group of three students, this project simplifies the process of selecting and launching classic NES games. Written in Python, Arcadia offers a user-friendly interface for enjoying three timeless classics: Mario Bros, Pac-Man, and Donkey Kong.
