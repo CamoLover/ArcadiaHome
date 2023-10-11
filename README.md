@@ -44,9 +44,9 @@ Screenshot
 
 
 To-Do Checklist 📝
- [x] Add more games to the menu.
- [x] Enhance the user interface.
- [x] Elevate sound effects and music.
- [x] Document the code for easy customization.
+ - [x] Add more games to the menu.
+ - [x] Enhance the user interface.
+ - [x] Elevate sound effects and music.
+ - [x] Document the code for easy customization.
  
 Thank you for exploring Arcadia, a labor of love from our high school days! Enjoy your gaming adventures! 🚀🎮
